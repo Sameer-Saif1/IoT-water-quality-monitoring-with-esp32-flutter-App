@@ -83,7 +83,7 @@ void readTemperature() {
 void readPH() {
   int pH_Value = analogRead(PH_PIN);
   float voltage = pH_Value * (3.3 / 4095.0);
-  pH = 7 + ((2.5 - voltage) / 0.059200);
+  pH = 7 + ((2.5 - voltage) / 0.059198);
   pH = constrain(pH, 0, 14);
 }
 
