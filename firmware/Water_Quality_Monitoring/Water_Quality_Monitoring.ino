@@ -254,13 +254,7 @@ void setup() {
 
   // Start Firebase
   ssl_client.setInsecure();
-  // NOTE: previously this called setConnectionTimeout(1000) and
-  // setHandshakeTimeout(5) here. setHandshakeTimeout() takes MILLISECONDS,
-  // so 5 meant "fail the TLS handshake after 5ms" — far too short for any
-  // real handshake to complete, which silently broke every Firebase
-  // connection regardless of network. Removed in favor of the library's
-  // built-in defaults (handshake ~120s, connect ~15s), which are sane.
-
+ 
   initializeApp(aClient, app, getAuth(user_auth), processData, "authTask");
   app.getApp<RealtimeDatabase>(Database);
   Database.url(FIREBASE_DATABASE_URL);
